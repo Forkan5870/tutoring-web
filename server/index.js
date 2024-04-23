@@ -75,86 +75,85 @@ app.post('/api/students/clear', async (req, res) => {
 
 // a partir de aqui es tutorial
 
-  
 
-app.post('/students', async (req, res) => {
-    try {
-      const students = req.body.students;
-      await Student.insertMany(students);
-      res.status(201).send('Students added successfully');
-    } catch (error) {
-      console.error('Error adding students:', error);
-      res.status(500).send('Internal Server Error');
-    }
-});
+// app.post('/students', async (req, res) => {
+//     try {
+//       const students = req.body.students;
+//       await Student.insertMany(students);
+//       res.status(201).send('Students added successfully');
+//     } catch (error) {
+//       console.error('Error adding students:', error);
+//       res.status(500).send('Internal Server Error');
+//     }
+// });
 
-app.get('/', (req, res) => {
-    res.send(student);
-});
+// app.get('/', (req, res) => {
+//     res.send(student);
+// });
 
-app.get('/api/students', async (req, res) => {
-    // console.log(await mongoose.connection.db.listCollections().toArray());
-    try {
-        const result = await Student.find();
-        res.send({"data" : result});
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({error : error.message});
-    }
-});
-
+// app.get('/api/students', async (req, res) => {
+//     // console.log(await mongoose.connection.db.listCollections().toArray());
+//     try {
+//         const result = await Student.find();
+//         res.send({"data" : result});
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({error : error.message});
+//     }
+// });
 
 
-app.delete('/api/students/:id', async (req, res) => {
-    try{
-        const studentId = req.params.id;
-        const result = await Student.deleteOne({ _id: studentId });
-        res.json({ deletedCount: result.deletedCount });
-    }
-    catch(error){
-        res.status(500).json({ error: "Something went wrong" });
-    }
-});
 
-app.put('/api/students/:id', async (req, res) => {
-    try{
-        const studentId = req.params.id;
-        const result = await Student.replaceOne({ _id: studentId }, req.body);
-        console.log(result);
-        res.json({ updatedCount: result.modifiedCount });
-    }
-    catch(error){
-        res.status(500).json({ error: "Something went wrong" });
-    }
-});
+// app.delete('/api/students/:id', async (req, res) => {
+//     try{
+//         const studentId = req.params.id;
+//         const result = await Student.deleteOne({ _id: studentId });
+//         res.json({ deletedCount: result.deletedCount });
+//     }
+//     catch(error){
+//         res.status(500).json({ error: "Something went wrong" });
+//     }
+// });
 
-app.post('/api/students', async (req, res) => {
-    console.log(req.body);
-    const student = new Student(req.body);
-    try {
-        await student.save();
-        res.status(201).json({ student });
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({ error: error.message });
-    }
-});
+// app.put('/api/students/:id', async (req, res) => {
+//     try{
+//         const studentId = req.params.id;
+//         const result = await Student.replaceOne({ _id: studentId }, req.body);
+//         console.log(result);
+//         res.json({ updatedCount: result.modifiedCount });
+//     }
+//     catch(error){
+//         res.status(500).json({ error: "Something went wrong" });
+//     }
+// });
 
-app.post('/', (req, res) => {
-    res.send('This is a post request!');
-});
+// app.post('/api/students', async (req, res) => {
+//     console.log(req.body);
+//     const student = new Student(req.body);
+//     try {
+//         await student.save();
+//         res.status(201).json({ student });
+//     } catch (error) {
+//         console.log(error);
+//         res.status(400).json({ error: error.message });
+//     }
+// });
 
-const start = async () => {
-    try{
-        await mongoose.connect(CONNECTION);
-        app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
-        });
-    }
-    catch(error){
-        console.log(error);
-    }
-}
+// app.post('/', (req, res) => {
+//     res.send('This is a post request!');
+// });
+
+// const start = async () => {
+//     try{
+//         await mongoose.connect(CONNECTION);
+//         app.listen(PORT, () => {
+//             console.log(`Server is running on port ${PORT}`);
+//         });
+//     }
+//     catch(error){
+//         console.log(error);
+//     }
+// }
 
 start();
 
