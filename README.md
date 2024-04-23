@@ -28,7 +28,7 @@ If you navigate to `\server`, you can run:
 This command runs the server in the development mode.
 Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 
-Please note that traditionally, the server should not be within the frontend directory. However, for learning purposes, it's common to have them together. If needed, this structure can be modified in the future.
+I am aware that the server should not be inside the frontend, but I did it this way because I learned React first and then Node.js. I will change this in the future.
 
 ## .env File
 
