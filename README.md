@@ -1,8 +1,8 @@
-# Getting Started with Create React App and Node.js Server
+# Tutoring App
 
 ## Introduction
 
-This repository is a starter template for a web application built with React.js for the frontend and Node.js for the backend. Below are instructions to get you started with running the development servers for both the frontend and backend components.
+This repository is a project I am working on to learn more about React and Node.js. The project is a tutoring app where students can find tutors and schedule classes.
 
 ## Available Scripts
 
